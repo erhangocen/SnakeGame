@@ -1,0 +1,178 @@
+body{
+    background-image:linear-gradient(rgba(0, 0, 0, 0.300), rgba(0, 0, 0, 0.300)), url("https://www.themotoringlaw.uk/wp-content/uploads/2015/06/6OZdqnw1.gif");
+    background-blend-mode:darken;
+}
+
+canvas{
+    /* border: 0.1px solid rgba(255, 255, 255, 0); */
+    margin-left: 10%;
+    background: rgba(230, 229, 229, 0.39);
+    border-radius: 4%;
+    box-shadow: rgba(0, 0, 0, 0.459) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.fadeOutAnimation{
+  animation: 0.6s fadeOut;
+  animation-fill-mode: forwards;
+}
+
+.fadeInAnimation{
+  animation: 0.6s fadeIn;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+.box {
+    width: 500px;
+    padding: 40px;
+    background: #191919;
+    text-align: center;
+    transition: 0.25s;
+    margin-top: 60px;
+    margin-bottom: 100px;
+    border-radius: 15px;
+    position:absolute;
+    bottom: 5%;
+    right: 33%;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    
+}
+
+.box input[type="text"]{
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #3498db;
+    padding: 10px 10px;
+    width: 280px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s
+}
+
+.box h1 {
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500
+}
+
+.box .h1 {
+    color: red;
+	font-weight: 900;
+}
+.box .less{
+    font-size: 35px;
+}
+
+.box input[type="text"]:focus{
+    width: 350px;
+    border-color: #e0e416
+}
+
+.box input[type="submit"] {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #2ecc71;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    padding: 14px 40px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer
+}
+
+
+.box input[type="submit"]:hover {
+    background: #2ecc71
+}
+
+#blue:hover{
+  background: blue
+}
+
+#warning{
+  animation-fill-mode: forwards;
+}
+
+.box .select{
+    background-color: rgba(10, 10, 10, 0.863);
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #3498db;
+    padding: 10px 10px;
+    width: 280px;
+    color: wheat;
+    outline: none;
+    border-radius: 24px;
+    transition: 0.25s
+}
+
+
+@media (max-width: 700px) {
+
+    .box{
+        bottom: 4%;
+        right: 12%;
+        padding: 25px 0px;
+        width: 366px
+    }
+
+}
+@media (max-width: 1400px) {
+
+    .box{
+        bottom: 4%;
+        padding: 25px 0px;
+        width: 366px
+    }
+
+}
+
+.box .score {
+    color: red;
+    font-size: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: oblique;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

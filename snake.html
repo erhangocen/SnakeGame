@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="snake.css">
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Antic+Slab"
+            rel="stylesheet">
+        <script
+            src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.js"></script>
+        <title>Snake Game</title>
+    </head>
+    <body>
+
+
+        <div class="container" id="scoreTable">
+            <div class="box" style="bottom: 10%;">
+
+                <h1 class="h1 mb-3">Game Over!</h1>
+                <p id="gamer" style="color: yellow; font-size: 32px;"></p>
+
+                <h1 class="less">Score</h1>
+                <p class="score mb-3" id="score"> </p>
+
+                <h1 class="less">Your Best Score</h1>
+                <p class="score mb-3" id="bestScore"> </p>
+
+                <div class="col-md-12">
+                    <input type="submit" value="🐍 Play Again" class="green"
+                        onclick="playAgain()">
+                    <input type="submit" id="blue" style="border: 2px solid
+                        blue;"
+                        value="🏠 Back To Home"
+                        onclick="backToHome()">
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="container" style="visibility:hidden">
+            <canvas id="game" width="600" height="400" class="col-10
+                mt-5
+                p-0"
+                style="border: none;">
+            </canvas>
+        </div>
+
+
+        <div class="container">
+            <div class="box" id="form" name="form" ng-app="login"
+                ng-controller="loginControl">
+                <div id="login">
+                    <h1 class="mt-3 mb-3">Welcome To SnaKe Game</h1>
+
+                    <p class="text-muted mb-4"> Lütfen Kullanıcı Adınızı,
+                        Renginizi ve Seviyenizi
+                        Seçiniz!</p>
+                    <input type="text" class="mb-1" id="nickName"
+                        name="nickName"
+                        placeholder="Örn: Selman Kahya <3">
+
+                    <div style="color: red; padding-right:60px;
+                        font-weight:500; visibility:hidden" id="warning">Bu
+                        alanı boş
+                        bırakamazsınız !</div>
+                    <div>
+                        <select class="form-select select mt-3 mb-4"
+                            id="snakeColor">
+                            <option
+                                ng-repeat="color in colors"
+                                value={{color.value}}>{{color.name}}
+                            </option>
+                        </select>
+                    </div>
+
+                    <select class="form-select select" id="gameLevel"
+                        name="gameLevel">
+                        <option ng-repeat="level in levels"
+                            value={{level.value}}>{{level.name}}</option>
+                    </select>
+
+                    <input class="mt-5" type="submit" value="🐍 Start Game"
+                        class="green"
+                        onclick="startGame()">
+                </div>
+                <div style="display:none;" id="usersTable">
+                    <h1>SKOR TABLOSU</h1>
+
+                    <table class="table table-bordered
+                        table-dark table-hover mt-5 mb-5">
+                        <thead>
+                            <tr>
+                                <th>Sıralama</th>
+                                <th>Kullanıcı Adı</th>
+                                <th>Score</th>
+                                <th>🛠</th>
+                            </tr>
+                        </thead>
+                        <tbody ng-repeat="gamer in gamers">
+                            <tr>
+                                <td>{{$index + 1}}</td>
+                                <td>{{gamer.key}}</td>
+                                <td>{{gamer.value}}</td>
+                                <td>
+                                    <a class="btn btn-danger"
+                                        ng-click="deleteGamer(gamer.key)"
+                                        id="liveToastBtn">
+                                        <i class="far fa-trash-alt"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div style="float: right;" ng-if="gamers.length> 0">
+                    <a class="btn btn-warning" style="border-radius:45%"
+                        onclick="transition()">
+                        <i id="fontAwesome" class="fas fa-medal"></i>
+                    </a>
+                </div>
+                <div style="float: left;">
+                    <a class="btn btn-warning" style="border-radius:45%"
+                        onclick="soundOpnCls()">
+                        <i id="sound" id="fontAwesome" class="fas fa-volume-up"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container" style="visibility: hidden;" id="scoreTable">
+            <div class="box" id="form" name="form" style="bottom: 10%;">
+
+                <h1 class="h1 mb-3">Game Over!</h1>
+                <p id="gamer" style="color: yellow; font-size: 32px;"></p>
+
+                <h1 class="less">Score</h1>
+                <p class="score mb-3" id="score"> </p>
+
+                <h1 class="less">Your Best Score</h1>
+                <p class="score mb-3" id="bestScore"> </p>
+
+                <div class="col-md-12">
+                    <input type="submit" value="🐍 Play Again" class="green"
+                        onclick="playAgain()">
+                    <input type="submit" id="blue" style="border: 2px solid
+                        blue;"
+                        value="🏠 Back To Home"
+                        onclick="backToHome()">
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <script src="snake.js"></script>
+
+    </body>
+</html>
